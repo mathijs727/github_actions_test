@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: "microsoft/vcpkg"
-        ref: "{{env.vcpkgRef}}"
+        ref: "${{env.vcpkgRef}}"
         fetch-depth: 1
         path: ${{github.workspace}}/vcpkg
 
