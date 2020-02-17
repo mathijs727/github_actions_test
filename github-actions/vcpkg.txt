@@ -1,3 +1,3 @@
 --triplet
 x64-linux
-gtest
+assimp boost-program-options cnl embree3 eabase eastl fmt glm gtest ms-gsl mio openimageio spdlog tbb

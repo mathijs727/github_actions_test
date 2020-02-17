@@ -5,7 +5,7 @@ TEST(HelloWorld, Pass)
     ASSERT_EQ(1, 1);
 }
 
-TEST(HelloWorld, Fail)
+TEST(HelloWorld, Pass)
 {
-    ASSERT_EQ(1, 2);
+    ASSERT_EQ(2, 2);
 }
