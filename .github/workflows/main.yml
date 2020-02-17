@@ -16,13 +16,20 @@ jobs:
       run: |
         echo "::set-env name=vcpkgResponseFile::vcpkgResponseFile"
       shell: bash
-      
-    - name: Set vcpkg's response file path used as part of cache's key.
-      env:
-        vcpkgResponseFile: ${{github.workspace}}/github-actions/vcpkg.txt
-      run: |
-        echo "::set-env name=vcpkgResponseFile::$vcpkgResponseFile"
-      shell: bash
+
+    - name: Download vcpkg
+      uses: actions/checkout@v2
+      with:
+        repository: "microsoft/vcpkg"
+        ref: "1be75a28bfce2084bb0b59ec92a6853f13d7be66"
+        fetch-depth: 1
+        path: ${{github.workspace}}/vcpkg
+
+    - name: Cache vcpkg artifacts
+        uses: actions/cache@v1
+        with:
+          path: ${{github.workspace}}/vcpkg
+          key: ${{hashFiles(env.vcpkgResponseFile)}}-${{hashFiles('.git/modules/vcpkg/HEAD')}}-${{runner.os}}
 
     - name: Run vcpkg
       uses: lukka/run-vcpkg@v0
