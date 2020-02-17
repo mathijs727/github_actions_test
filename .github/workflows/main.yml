@@ -34,6 +34,7 @@ jobs:
       with:
         vcpkgArguments: "@${{env.vcpkgResponseFile}}"
         vcpkgDirectory: "${{github.workspace}}/vcpkg/"
+        vcpkgGitCommitId: ${{env.vcpkgRef}}
 
     - name: Run CMake with Ninja
       uses: lukka/run-cmake@v0
