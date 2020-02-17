@@ -15,11 +15,20 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-    - name: Run CMake+Ninja wihtout triplet
+    - name: Run CMake+Ninja without triplet
       uses: lukka/run-cmake@v0
       id: runcmake
       with:
         cmakeGenerator: Ninja
         cmakeListsOrSettingsJson: CMakeListsTxtBasic
         buildWithCMakeArgs: "-- -v"
-        buildDirectory: "${{ runner.workspace }}/build/"
+        buildDirectory: "${{runner.workspace}}/build/"
+    - name: Run code
+      working-directory: "${{runner.workspace}}/build/"
+      run: HelloWorld
+    #- name: Run unit tests
+    #  working-directory: "${{runner.workspace}}/build/projects/render_core/tests/unit/"
+    #  run: RenderCoreUnitTests
+    #- name: Run regression tests
+    #  working-directory: "${{runner.workspace}}/build/projects/render_core/tests/regression/"
+    #  run: RenderCoreRegressionTests
