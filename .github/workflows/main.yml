@@ -22,4 +22,4 @@ jobs:
         cmakeGenerator: Ninja
         cmakeListsOrSettingsJson: CMakeListsTxtBasic
         buildWithCMakeArgs: "-- -v"
-        buildDirectory: "${{runner.worksapce}}/build/"
+        buildDirectory: "${{ runner.workspace }}/build/"
