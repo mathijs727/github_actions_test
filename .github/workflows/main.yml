@@ -14,14 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Download vcpkg
-      uses: actions/checkout@v2
-      with:
-        repository: "microsoft/vcpkg"
-        ref: "${{env.vcpkgRef}}"
-        fetch-depth: 1
-        path: ${{github.workspace}}/vcpkg
-
     - name: Cache vcpkg artifacts
       uses: actions/cache@v1
       with:
