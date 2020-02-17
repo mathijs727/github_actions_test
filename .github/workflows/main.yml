@@ -16,7 +16,7 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
     - name: Run CMake+Ninja wihtout triplet
-      uses: lukka/run-cmake@dev
+      uses: lukka/run-cmake@v0
       id: runcmake
       with:
         cmakeGenerator: Ninja
