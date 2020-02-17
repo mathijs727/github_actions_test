@@ -25,7 +25,7 @@ jobs:
         buildDirectory: "${{runner.workspace}}/build/"
     - name: Run code
       working-directory: "${{runner.workspace}}/build/"
-      run: HelloWorld
+      run: "${{runner.workspace}}/build/HelloWorld"
     #- name: Run unit tests
     #  working-directory: "${{runner.workspace}}/build/projects/render_core/tests/unit/"
     #  run: RenderCoreUnitTests
