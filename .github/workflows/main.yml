@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      vcpkgRepsonseFile: ${{github.workspace}}/github-actions/vcpkg.txt
+      vcpkgResponseFile: ${{github.workspace}}/github-actions/vcpkg.txt
 
     steps:
     - uses: actions/checkout@v2
