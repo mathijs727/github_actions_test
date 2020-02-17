@@ -1,6 +1,11 @@
-#include <iostream>
+#include <gtest/gtest.h>
 
-int main() {
-    std::cout << "Hello world" << std::endl;
-    return 0;
+TEST(HelloWorld, Pass)
+{
+    ASSERT_EQ(1, 1);
+}
+
+TEST(HelloWorld, Fail)
+{
+    ASSERT_EQ(1, 2);
 }
