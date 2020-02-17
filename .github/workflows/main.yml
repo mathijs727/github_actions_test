@@ -7,15 +7,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      vcpkgRepsonseFile: ${{github.workspace}}/github-actions/vcpkg.txt
+
     steps:
     - uses: actions/checkout@v2
-        
-    - name: Set vcpkg's response file path used as part of cache's key.
-      env:
-        vcpkgResponseFile: ${{github.workspace}}/github-actions/vcpkg.txt
-      run: |
-        echo "::set-env name=vcpkgResponseFile::vcpkgResponseFile"
-      shell: bash
 
     - name: Download vcpkg
       uses: actions/checkout@v2
