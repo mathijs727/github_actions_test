@@ -9,6 +9,7 @@ jobs:
 
     env:
       vcpkgResponseFile: ${{github.workspace}}/github-actions/vcpkg.txt
+      vcpkgRef: "1be75a28bfce2084bb0b59ec92a6853f13d7be66"
 
     steps:
     - uses: actions/checkout@v2
@@ -17,7 +18,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: "microsoft/vcpkg"
-        ref: "1be75a28bfce2084bb0b59ec92a6853f13d7be66"
+        ref: "{{env.vcpkgRef}}"
         fetch-depth: 1
         path: ${{github.workspace}}/vcpkg
 
@@ -25,7 +26,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: ${{github.workspace}}/vcpkg
-        key: ${{hashFiles(env.vcpkgResponseFile)}}-${{hashFiles('.git/modules/vcpkg/HEAD')}}-${{runner.os}}
+        key: ${{hashFiles(env.vcpkgResponseFile)}}-${{env.vcpkgRef}}-${{runner.os}}
 
     - name: Run vcpkg
       uses: lukka/run-vcpkg@v0
